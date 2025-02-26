@@ -89,8 +89,14 @@ const BlogId = ({ blog }: { blog: IBlog }) => {
                 src={blog?.image}
                 alt={blog?.title}
                 title={blog?.title}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                width={380}
+                height={300}
+                sizes="(min-width: 808px) 50vw, 100vw"
+                style={{
+                  objectFit: "contain",
+                  height: "auto",
+                  maxHeight: "100%",
+                }}
               />
             ) : (
               <Stack
