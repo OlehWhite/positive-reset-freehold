@@ -55,6 +55,9 @@ export const MUIAccordion = () => {
           <Link href="/career-opportunities" id="dark-link">
             CARRER
           </Link>
+          <Link href="/blogs" id="dark-link">
+            BLOGS
+          </Link>
         </AccordionDetails>
       </Accordion>
     </Box>

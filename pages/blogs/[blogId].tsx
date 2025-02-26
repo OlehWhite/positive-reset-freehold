@@ -1,22 +1,22 @@
 import Head from "next/head";
-import { OtherHeader } from "../../components/Layout/OtherHeader/OtherHeader";
-import React, { useEffect, useState } from "react";
-import { Box, CircularProgress, Stack, Typography } from "@mui/material";
-import { useRouter } from "next/router";
-import { IBlog, Website } from "../../services/types";
+import {OtherHeader} from "../../components/Layout/OtherHeader/OtherHeader";
+import React, {useEffect, useState} from "react";
+import {Box, CircularProgress, Stack, Typography} from "@mui/material";
+import {useRouter} from "next/router";
+import {IBlog, Website} from "../../services/types";
 import Image from "next/image";
 import Button from "@mui/material/Button";
-import { CURRENT_WEBSITE, WEBSITE_TITLE } from "../../services/constants";
-import { fetchProjects } from "../../services/getInfo";
-import { Title } from "../../components/FormFields/styled";
+import {CURRENT_WEBSITE, WEBSITE_TITLE} from "../../services/constants";
+import {fetchProjects} from "../../services/getInfo";
+import {Title} from "../../components/FormFields/styled";
 
 export const getServerSideProps = async (context) => {
-  const { blogId } = context.params;
+  const {blogId} = context.params;
   const data = await fetchProjects();
 
   const project = data[0]?.[
     CURRENT_WEBSITE.POSITIVE_RESET_FREEHOLD
-  ] as Website;
+    ] as Website;
   const blog = project?.blogs.find((blog) => blog.id === blogId);
   return {
     props: {
@@ -25,7 +25,7 @@ export const getServerSideProps = async (context) => {
   };
 };
 
-const BlogId = ({ blog }: { blog: IBlog }) => {
+const BlogId = ({blog}: { blog: IBlog }) => {
   const router = useRouter();
 
   const [description, setDescription] = useState("");
@@ -64,9 +64,20 @@ const BlogId = ({ blog }: { blog: IBlog }) => {
 
       <Box mb={5} borderBottom="1px solid #BEBEBE"/>
 
-      <Stack width={1} maxWidth={1100} margin="0 auto 40px" position="relative">
+      <Stack
+        width={1}
+        maxWidth={1100}
+        margin="0 auto 40px"
+        position="relative"
+        sx={{
+          "@media (max-width: 1100px)": {
+            boxSizing: "border-box",
+            p: "0 16px",
+          },
+        }}
+      >
         <Button
-          sx={{position: "absolute"}}
+          sx={{position: "absolute", top: -15}}
           variant="contained"
           onClick={() => router.push("/blogs")}
         >
@@ -105,7 +116,7 @@ const BlogId = ({ blog }: { blog: IBlog }) => {
                 justifyContent="center"
                 alignItems="center"
               >
-                <CircularProgress size={70} />
+                <CircularProgress size={70}/>
               </Stack>
             )}
           </Stack>
@@ -125,7 +136,7 @@ const BlogId = ({ blog }: { blog: IBlog }) => {
             {blog?.title}
           </Box>
 
-          <div dangerouslySetInnerHTML={{ __html: blog?.text }} />
+          <div dangerouslySetInnerHTML={{__html: blog?.text}}/>
         </Stack>
       </Stack>
     </>
