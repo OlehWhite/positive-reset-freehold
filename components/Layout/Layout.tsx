@@ -1,10 +1,12 @@
 import React, { FC, ReactNode, useEffect, useState } from "react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Wrapper, Arrow, Img } from "./styled";
 import { Footer } from "./Footer/Footer";
 import Image from "next/image";
 import IMGLogo from "../../public/down-arrow.png";
 import GoogleTranslate from "../GoogleTranslate";
 import PhoneIcon from "./PhoneIcon";
+import { useGetProjects } from "../../services/getInfo";
 
 interface CustomImgProps {
   show: boolean;
@@ -26,7 +28,10 @@ const CustomImg: FC<CustomImgProps> = ({ show, src }) => {
 };
 
 export const Layout: FC<{ children: ReactNode }> = ({ children }) => {
+  const { project } = useGetProjects();
   const [showArrow, setShowArrow] = useState(false);
+
+  const gaId = project?.googleId;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,6 +53,8 @@ export const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <>
       <GoogleTranslate />
+      <GoogleAnalytics gaId={gaId} />
+
       <Wrapper>
         <PhoneIcon />
         {children}
