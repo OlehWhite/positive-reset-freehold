@@ -31,7 +31,8 @@ export const DEFAULT_WEBSITE: Website = {
   languages: [],
   video: "",
   videoIcon: "",
-  rates: []
+  rates: [],
+  googleId: ""
 };
 
 export const DEFAULT_FEEDBACK = [

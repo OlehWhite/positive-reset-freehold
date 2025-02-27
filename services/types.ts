@@ -17,6 +17,7 @@ export interface Website {
   video: string;
   videoIcon: string;
   rates: IRate[];
+  googleId: string;
 }
 
 export interface IRate {
