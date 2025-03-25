@@ -127,7 +127,12 @@ export const Footer: FC = () => {
             {BASE_MENU.map((link, index) => (
               <Li key={index}>
                 {link.page !== "Services" ? (
-                  <Link href={link.path} passHref id="white-footer-link">
+                  <Link
+                    style={{ margin: 0 }}
+                    href={link.path}
+                    passHref
+                    id="white-footer-link"
+                  >
                     {link.page}
                   </Link>
                 ) : (
@@ -151,7 +156,7 @@ export const Footer: FC = () => {
                       title="Second Post"
                     />
 
-                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <Box sx={{ display: "flex", alignItems: "center", ml: 10 }}>
                       <Text>{blog?.title}</Text>
                     </Box>
                   </Post>

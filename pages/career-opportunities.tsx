@@ -14,7 +14,7 @@ import IMGTwo from "../public/pexels-lukas-653429-scaled.jpg";
 import { Feedbacks } from "../components/Feedbacks/Feedbacks";
 import IMGOne from "../public/career.jpg";
 import React, { useRef } from "react";
-import { Box } from "@mui/material";
+import {Box, Stack, Typography} from "@mui/material";
 import Image from "next/image";
 import Head from "next/head";
 import { WEBSITE_TITLE } from "../services/constants";
@@ -134,6 +134,26 @@ const CareerOpportunities = () => {
           <Box sx={{ marginBottom: "65px" }} ref={formRef}>
             <PersonalForm />
           </Box>
+
+          <Stack width={1} maxWidth={1300} m="0 auto">
+            <Typography
+              sx={{
+                fontSize: 14,
+                color: "#959595",
+                fontStyle: "italic",
+                mt: "-40px",
+              }}
+            >
+              "By providing a telephone number and submitting this form you are
+              consenting to be contacted by call or SMS text message. Message &
+              data rates may apply. You can reply STOP to opt-out of further
+              text messaging. No mobile information will be shared with third
+              parties/affiliates for marketing/promotional purposes. All other
+              categories exclude text messaging originator opt-in data and
+              consent; this information will not be shared with any third
+              parties."
+            </Typography>
+          </Stack>
         </Wrapper>
         <Feedbacks />
       </Box>
