@@ -154,10 +154,6 @@ export const Menu = styled("nav")(() => {
     "@media (max-width: 1335px)": {
       marginTop: 34,
     },
-
-    "@media (max-width: 600px)": {
-      marginLeft: 0,
-    },
   };
 });
 
@@ -182,6 +178,10 @@ export const WorkingHours = styled(Box)(() => {
 
     "@media (max-width: 1335px)": {
       marginTop: 34,
+    },
+
+    "@media (max-width: 600px)": {
+      marginLeft: 0,
     },
   };
 });
